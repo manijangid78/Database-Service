@@ -34,7 +34,6 @@ public class AdminService {
             Admin admin= adminRepository.getOne(email);
             return admin.getPassword().equals(password);
         }catch (Exception e){
-            System.out.println(e);
             return false;
         }
     }

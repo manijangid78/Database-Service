@@ -37,8 +37,6 @@ public class AppController {
     // postRequest:  http://localhost:8072/student/student_id/addCompleteAssignment , to add assignment to complete assignments by student
     @PostMapping("/student/{id}/addCompleteAssignment")
     public void setCompleteAssignment(@PathVariable("id")String id, @RequestParam("assignment") String assignment){
-        System.out.println(id);
-        System.out.println(assignment);
         studentService.setCompleteAssignment(id,assignment);
     }
 
@@ -58,7 +56,6 @@ public class AppController {
     @GetMapping("/admin/{id}/assignments")
     public List<String> getAdminAssignments(@PathVariable("id")String id){
         List<String> strings = adminService.getAssignments(id);
-        System.out.println(strings.toString());
         return adminService.getAssignments(id);
     }
 
@@ -66,7 +63,6 @@ public class AppController {
     @GetMapping("/admin/{id}/assignedAssignment")
     public Map<String,List<String>> getAssignAssignments(@PathVariable("id")String id){
         Map<String, List<String>> assignAssignment =  studentService.getAllAssignments();
-        System.out.println(assignAssignment.get("man"));
         return assignAssignment;
     }
 
